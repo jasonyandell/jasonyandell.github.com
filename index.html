@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #000000;
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="http://mrdoob.github.com/three.js/build/three.min.js"></script>
+		<script>
+
+			// workaround for chrome bug: http://code.google.com/p/chromium/issues/detail?id=35980#c12
+			if ( window.innerWidth === 0 ) { window.innerWidth = parent.innerWidth; window.innerHeight = parent.innerHeight; }
+							
+			var BLACK=0x000000,
+				WHITE=0xffffff,
+				RADIUS=1,
+				LINE_WIDTH=1,
+				CAMERA_Z=25;
+				FAR_Z=-25,
+				PARTICLE_COUNT=10;
+			
+			var camera, scene, renderer, directionalLight;
+			var geometry, material, mesh;
+			var particles = [];
+
+			init();
+			animate();
+
+			function between(low,high) {
+				var range = high-low;
+				return Math.random() * range - range/2 + low;
+			}
+			
+			function makeParticles(scene, geometry, material) { 
+			 
+				for ( var i=0; i < PARTICLE_COUNT; ++i) {
+					// make the particle
+					mesh = new THREE.Mesh( geometry, material );
+					// add it to the scene
+					scene.add( mesh );			 
+					// and to the array of particles. 
+					particles.push(mesh); 
+				}
+			 
+			}			
+			
+			function init() {				
+				// Camera params : 
+				// field of view, aspect ratio for render output, near and far clipping plane. 
+				camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 1, 4000 );				
+				camera.position.z = CAMERA_Z;
+
+				scene = new THREE.Scene();
+				
+				directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 ); directionalLight.position.set( 500, 500, 0 ); 
+				scene.add( directionalLight );
+				
+				geometry = new THREE.IcosahedronGeometry( RADIUS,.25 );
+				
+				// other materials to play with
+				//material = new THREE.MeshBasicMaterial( { color: WHITE, wireframe: true, wireframeLinewidth: LINE_WIDTH } );
+				material = new THREE.MeshNormalMaterial( { color: WHITE, wireframe: false, wireframeLinewidth: LINE_WIDTH } );
+				
+				makeParticles(scene, geometry, material);
+
+				renderer = new THREE.CanvasRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+				document.body.appendChild( renderer.domElement );
+			}
+			
+			function updateParticles() { 
+				var particle;
+				var tick = Date.now();
+			 
+				// iterate through every particle
+				for(var i=0; i<particles.length; i++) {
+					var delta = i*1.0/particles.length,				
+						phase = Math.cos(Math.PI/4+delta*Math.PI/4);
+					phase *= phase;
+					phase *= Math.PI*2;
+					delta = 1-delta;
+					
+					particle = particles[i]; 			 
+					particle.scale.x = particle.scale.y = particle.scale.z = delta;					
+					particle.position.x = Math.sin(tick*0.0005+.5*phase)*CAMERA_Z/4 ;
+					particle.position.y = Math.cos(tick*0.0005+.75*phase)*CAMERA_Z/4;
+					particle.position.z = Math.cos(tick*0.00025+.25*phase)*CAMERA_Z/4 + CAMERA_Z/2;
+
+					particle.rotation.x = tick * 0.00075;
+					particle.rotation.y = tick * 0.0005;
+				}
+			 
+			}			
+
+			function animate() {
+				requestAnimationFrame( animate );
+				updateParticles();
+				renderer.render( scene, camera );
+			}
+
+		</script>
+	</body>
+</html>
