@@ -25,7 +25,7 @@ Light Gray: #eee
 body {
 	margin: 0px;
 	padding: 0px;
-	background: url("~/Content/images/bg_dark_blue.png");  
+	background: url("~/Content/Images/bg_dark_blue.png");  
 	background-color: inherit;
 	font-size: 16px; 
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -91,7 +91,7 @@ a:active {
 
 #contact-details .header_1 img {
 	border: #fff solid 4px;
-	background: url("~/Content/images/bg_img_dark_blue.png"); 
+	background: url("~/Content/Images/bg_img_dark_blue.png"); 
 	padding: 16px;
 	margin: 10px 0px 0px 0px;
 }
@@ -132,31 +132,31 @@ a:active {
 }
 
 #contact-details li.address	{
-    background: url("~/Content/images/home.png") no-repeat;
+    background: url("~/Content/Images/home.png") no-repeat;
 	background-position: 0px 0px;
     padding: 0px 0px 12px 40px;
 }
 
 #contact-details li.phone	{
-    background: url("~/Content/images/phone.png") no-repeat;
+    background: url("~/Content/Images/phone.png") no-repeat;
 	background-position: 0px 0px;
     padding: 0px 0px 12px 40px;
 }
 
 #contact-details li.email	{
-    background: url("~/Content/images/mail.png") no-repeat;
+    background: url("~/Content/Images/mail.png") no-repeat;
 	background-position: 0px 0px;
     padding: 0px 0px 12px 40px;
 }
 
 #contact-details li.site_url	{
-    background: url("~/Content/images/computer.png") no-repeat;
+    background: url("~/Content/Images/computer.png") no-repeat;
 	background-position: 0px 2px;
     padding: 0px 0px 12px 40px;
 }
 
 #contact-details li.twitter	{
-    background: url("~/Content/images/twitter_sm.png") no-repeat;
+    background: url("~/Content/Images/twitter_sm.png") no-repeat;
 	background-position: 0px 0px;
     padding: 0px 0px 12px 40px;
 }
@@ -255,7 +255,7 @@ p.summary	{
 }
 
 #skills li {
-    background: url("~/Content/images/bullet_blue.png") no-repeat;
+    background: url("~/Content/Images/bullet_blue.png") no-repeat;
 	background-position: 0px 2px;
     padding: 0px 0px 0px 25px;
 }
