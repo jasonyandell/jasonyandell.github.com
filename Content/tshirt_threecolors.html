@@ -1,0 +1,55 @@
+<body>
+<!-- Products -->
+<div itemscope itemtype="http://schema.org/SomeProducts" id="jimi_tshirt">
+ Model: <span itemprop="model" itemscope itemtype="http://schema.org/ProductModel" itemref="model_tshirt">T-Shirt</span>
+ Name: <span itemprop="name">Jimi Hendrix T-Shirt</span>
+ Product description: <span itemprop="description">the master</span>
+ Image: <img itemprop="image" src="http://ih2.redbubble.net/image.6764854.2818/fig,black,mens,ffffff.u2.jpg" />
+ Color: <span itemprop="color">black</span>
+</div>
+
+<div itemscope itemtype="http://schema.org/SomeProducts" id="jimi_tshirt">
+ Model: <span itemprop="model" itemscope itemtype="http://schema.org/ProductModel" itemref="model_tshirt">T-Shirt</span>
+ Name: <span itemprop="name">Jimi Hendrix T-Shirt</span>
+ Product description: <span itemprop="description">the master</span>
+ Image: <img itemprop="image" src="http://ih2.redbubble.net/image.6764854.2818/fig,gray,mens,ffffff.u2.jpg" />
+ Color: <span itemprop="color">gray</span>
+</div>
+
+<div itemscope itemtype="http://schema.org/SomeProducts" id="jimi_tshirt">
+ Model: <span itemprop="model" itemscope itemtype="http://schema.org/ProductModel" itemref="model_tshirt">T-Shirt</span>
+ Name: <span itemprop="name">Jimi Hendrix T-Shirt</span>
+ Product description: <span itemprop="description">the master</span>
+ Image: <img itemprop="image" src="http://ih2.redbubble.net/image.6764854.2818/fig,blue,mens,ffffff.u2.jpg" />
+ Color: <span itemprop="color">blue</span>
+</div>
+
+<!-- Seller -->
+<div id="ralphyboy">
+ Seller name: <span itemprop="name">ralphyboy</span>
+ <a itemprop="url" href="http://www.redbubble.com/people/ralphyboy">http://www.redbubble.com/people/ralphyboy</a>
+ where I sell products on <span itemprop="affiliation">Redbubble</span>.
+</div>
+
+<!-- ProductModel -->
+<div id="model_tshirt">
+ <link itemprop="additionalType" href="http://www.productontology.org/id/T-shirt" />
+ Name: <span itemprop="name">A T-shirt</span>
+ Description: <span itemprop="description">A basic, non-white, small-XL sized T-shirt</span>
+ Model: <span itemprop="model">T-Shirt</span>
+ URL: <link itemprop="url" href="http://www.redbubble.com/people/ralphyboy/works/4232818-jimi-hendrix-t-shirt" />
+ Offers:<meta itemprop="offers" itemscope itemtype="http://schema.org/Offer" itemref="offer_tshirt">
+</div>
+
+<!-- Offer -->
+<div id="offer_tshirt">
+ <link itemprop="businessFunction"
+       href="http://schema.org/Sell"></link>
+ Seller: <span itemprop="seller" itemscope itemtype="http://schema.org/Person" itemref="ralphyboy">ralphyboy</span>
+ <div itemscope itemprop="priceSpecification"
+      itemtype="http://schema.org/UnitPriceSpecification">Price:
+   <meta itemprop="priceCurrency" content="USD">$</meta>
+   <span itemprop="price">26.18</span>
+   <meta itemprop="validThrough" content="2014-11-30T23:59:59Z" />
+ </div>
+</div>
