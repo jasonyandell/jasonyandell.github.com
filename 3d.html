@@ -23,7 +23,7 @@
 				LINE_WIDTH=1,
 				CAMERA_Z=25;
 				FAR_Z=-25,
-				PARTICLE_COUNT=10;
+				PARTICLE_COUNT=20;
 			
 			var camera, scene, renderer, directionalLight;
 			var geometry, material, mesh;
@@ -79,7 +79,7 @@
 			
 			function updateParticles() { 
 				var particle;
-				var tick = Date.now()/200;
+				var tick = Date.now()/300;
 			 
 				// iterate through every particle
 				for(var i=0; i<particles.length; i++) {
