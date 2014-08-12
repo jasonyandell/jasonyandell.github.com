@@ -23,7 +23,7 @@
 				LINE_WIDTH=1,
 				CAMERA_Z=25;
 				FAR_Z=-25,
-				PARTICLE_COUNT=20;
+				PARTICLE_COUNT=5;
 			
 			var camera, scene, renderer, directionalLight;
 			var geometry, material, mesh;
@@ -84,7 +84,7 @@
 				// iterate through every particle
 				for(var i=0; i<particles.length; i++) {
 					var delta = i*1.0/particles.length,				
-						phase = Math.cos((Math.PI/2+delta*Math.PI/2));
+						phase = Math.cos((Math.PI/8+delta*Math.PI/8));
 					phase *= phase;
 					phase *= Math.PI*2;
 					//					delta = 1-delta;
