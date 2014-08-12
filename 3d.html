@@ -61,11 +61,13 @@
 				directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 ); directionalLight.position.set( 500, 500, 0 ); 
 				scene.add( directionalLight );
 				
-				geometry = new THREE.IcosahedronGeometry( RADIUS,.25 );
+				//geometry = new THREE.SphereGeometry( RADIUS,5,6 );
+				geometry = new THREE.CubeGeometry(RADIUS, RADIUS, RADIUS);
 				
 				// other materials to play with
-				//material = new THREE.MeshBasicMaterial( { color: WHITE, wireframe: true, wireframeLinewidth: LINE_WIDTH } );
+				//material = new THREE.MeshBasicMaterial( { color: WHITE, wireframe: false, wireframeLinewidth: LINE_WIDTH } );
 				material = new THREE.MeshNormalMaterial( { color: WHITE, wireframe: false, wireframeLinewidth: LINE_WIDTH } );
+				//material = new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xdddddd, specular: 0x009900, shininess: 30, shading: THREE.FlatShading } );
 				
 				makeParticles(scene, geometry, material);
 
@@ -77,31 +79,33 @@
 			
 			function updateParticles() { 
 				var particle;
-				var tick = Date.now();
+				var tick = Date.now()/200;
 			 
 				// iterate through every particle
 				for(var i=0; i<particles.length; i++) {
 					var delta = i*1.0/particles.length,				
-						phase = Math.cos(Math.PI/4+delta*Math.PI/4);
+						phase = Math.cos((Math.PI/2+delta*Math.PI/2));
 					phase *= phase;
 					phase *= Math.PI*2;
-					delta = 1-delta;
+					//					delta = 1-delta;
+					
+					var theta = tick + phase
 					
 					particle = particles[i]; 			 
 					particle.scale.x = particle.scale.y = particle.scale.z = delta;					
-					particle.position.x = Math.sin(tick*0.0005+.5*phase)*CAMERA_Z/4 ;
-					particle.position.y = Math.cos(tick*0.0005+.75*phase)*CAMERA_Z/4;
-					particle.position.z = Math.cos(tick*0.00025+.25*phase)*CAMERA_Z/4 + CAMERA_Z/2;
+					particle.position.x = Math.sin(theta*0.75)*CAMERA_Z/4;
+					particle.position.y = Math.cos(theta*0.6666)*CAMERA_Z/4;
+					particle.position.z = Math.cos(theta*0.18)*CAMERA_Z/4 + CAMERA_Z/3;
 
-					particle.rotation.x = tick * 0.00075;
-					particle.rotation.y = tick * 0.0005;
+					particle.rotation.x = tick/4;
+					particle.rotation.y = tick/4;
 				}
 			 
 			}			
 
 			function animate() {
-				requestAnimationFrame( animate );
 				updateParticles();
+				requestAnimationFrame( animate );
 				renderer.render( scene, camera );
 			}
 
