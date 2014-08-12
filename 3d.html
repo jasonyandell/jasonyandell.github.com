@@ -79,15 +79,15 @@
 			
 			function updateParticles() { 
 				var particle;
-				var tick = Date.now()/300;
+				var tick = Date.now()/200;
 			 
 				// iterate through every particle
 				for(var i=0; i<particles.length; i++) {
 					var delta = i*1.0/particles.length,				
-						phase = Math.cos((Math.PI/8+delta*Math.PI/8));
+						phase = Math.cos((Math.PI/2+delta*Math.PI/2));
 					phase *= phase;
 					phase *= Math.PI*2;
-										delta = 1-delta;
+					//					delta = 1-delta;
 					
 					var theta = tick + phase
 					
