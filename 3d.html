@@ -24,7 +24,7 @@
 				CAMERA_Z=25;
 				FAR_Z=-25,
 				SPACING = 1.0;
-				PARTICLE_COUNT=3;
+				PARTICLE_COUNT=50;
 			//	50hh;
 			var camera, scene, renderer, directionalLight;
 			var geometry, material, mesh;
@@ -62,8 +62,8 @@
 				directionalLight = new THREE.DirectionalLight( 0xffffff, 0.5 ); directionalLight.position.set( 500, 500, 0 ); 
 				scene.add( directionalLight );
 				
-				//geometry = new THREE.SphereGeometry( RADIUS,5,6 );
-				geometry = new THREE.CubeGeometry(RADIUS, RADIUS, RADIUS);
+				geometry = new THREE.SphereGeometry( RADIUS,5,6 );
+				//geometry = new THREE.CubeGeometry(RADIUS, RADIUS, RADIUS);
 				
 				// other materials to play with
 				//material = new THREE.MeshBasicMaterial( { color: WHITE, wireframe: false, wireframeLinewidth: LINE_WIDTH } );
@@ -85,9 +85,9 @@
 				// iterate through every particle
 				for(var i=0; i<particles.length; i++) {
 					var delta = i*1.0/particles.length,				
-						phase = Math.cos((Math.PI/2+delta*SPACING*Math.PI/2));
+						phase = Math.cos((Math.PI/2+delta*Math.PI/2));
 					phase *= phase;
-					phase *= Math.PI*2;
+					phase *= Math.PI*2*SPACING;
 					//					delta = 1-delta;
 					
 					var theta = tick + phase
