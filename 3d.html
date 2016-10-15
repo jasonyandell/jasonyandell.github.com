@@ -70,9 +70,9 @@
 				//geometry = new THREE.TetrahedronGeometry(RADIUS);
 				
 				// other materials to play with
-				material = new THREE.MeshBasicMaterial( { color: WHITE, wireframe: false, wireframeLinewidth: LINE_WIDTH } );
+				//material = new THREE.MeshBasicMaterial( { color: WHITE, wireframe: false, wireframeLinewidth: LINE_WIDTH } );
 				//material = new THREE.MeshNormalMaterial( { color: WHITE, wireframe: false, wireframeLinewidth: LINE_WIDTH } );
-				//material = new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xdddddd, specular: 0x009900, shininess: 90, shading: THREE.FlatShading } );
+				material = new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xdddddd, specular: 0x009900, shininess: 90, shading: THREE.FlatShading } );
 				
 				makeParticles(scene, geometry, material);
 
