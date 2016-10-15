@@ -96,9 +96,9 @@
 					
 					particle = particles[i]; 			 
 					particle.scale.x = particle.scale.y = particle.scale.z = delta;					
-					particle.position.x = Math.sin(theta*0.95)*CAMERA_Z/4;
-					particle.position.y = Math.cos(theta*1.0)*CAMERA_Z/4;
-					particle.position.z = Math.cos(theta*0.5)*CAMERA_Z/4 + CAMERA_Z/3;
+					particle.position.x = Math.sin(theta*0.75)*CAMERA_Z/4;
+					particle.position.y = Math.cos(theta*0.6666666)*CAMERA_Z/4;
+					particle.position.z = 0;//Math.cos(theta*0.5)*CAMERA_Z/4 + CAMERA_Z/3;
 
 					particle.rotation.x = tick/4;
 					particle.rotation.y = tick/4;
