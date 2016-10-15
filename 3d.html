@@ -24,7 +24,7 @@
 				CAMERA_Z=25;
 				FAR_Z=-25,
 				SPACING = .5;
-				PARTICLE_COUNT=20;
+				PARTICLE_COUNT=200;
 			//	50hh;
 			var camera, scene, renderer, directionalLight;
 			var geometry, material, mesh;
@@ -64,8 +64,8 @@
 				
 				//geometry = new THREE.SphereGeometry( RADIUS,5,6 );
 				//geometry = new THREE.CubeGeometry(RADIUS, RADIUS, RADIUS);
-				//geometry = new THREE.IcosahedronGeometry(RADIUS, RADIUS, RADIUS);
-				geometry = new THREE.TetrahedronGeometry(RADIUS);
+				geometry = new THREE.IcosahedronGeometry(RADIUS);//, RADIUS, RADIUS);
+				//geometry = new THREE.TetrahedronGeometry(RADIUS);
 				
 				// other materials to play with
 				//material = new THREE.MeshBasicMaterial( { color: WHITE, wireframe: false, wireframeLinewidth: LINE_WIDTH } );
