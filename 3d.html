@@ -71,8 +71,8 @@
 				
 				// other materials to play with
 				//material = new THREE.MeshBasicMaterial( { color: WHITE, wireframe: false, wireframeLinewidth: LINE_WIDTH } );
-				material = new THREE.MeshNormalMaterial( { color: WHITE, wireframe: false, wireframeLinewidth: LINE_WIDTH } );
-				//material = new THREE.MeshPhongMaterial( { ambient: 0x030303, color: 0xdddddd, specular: 0x009900, shininess: 90, shading: THREE.FlatShading } );
+				//material = new THREE.MeshNormalMaterial( { color: WHITE, wireframe: false, wireframeLinewidth: LINE_WIDTH } );
+				material = new THREE.MeshPhongMaterial( { ambient: 0xF3F3F3, color: 0xdddddd, specular: 0x009900, shininess: 90, shading: THREE.FlatShading } );
 				
 				makeParticles(scene, geometry, material);
 
@@ -105,7 +105,7 @@
 					particle.rotation.x = tick/4;
 					particle.rotation.y = tick/4;
 				}
-				
+			
 				camera.position.x = Math.cos( tick/8 ) * CAMERA_Z;
 				camera.position.z = Math.sin( tick/8 ) * CAMERA_Z;
 
